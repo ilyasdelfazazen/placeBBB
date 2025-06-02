@@ -152,6 +152,162 @@ const navigationItems = [
   { type: 'transport', icon: <Car size={20} />, label: 'Transport' }
 ];
 
+const placeCards = [
+  {
+    id: 'p1',
+    name: 'Plaza Uta el-Hammam',
+    description: 'The main square of Chefchaouen, surrounded by cafes and restaurants, featuring the Grand Mosque and kasbah.',
+    image: 'https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg',
+    tags: ['Historical', 'Cultural', 'Central'],
+    rating: 4.8,
+    reviews: 520
+  },
+  {
+    id: 'p2',
+    name: 'Kasbah Museum',
+    description: 'A 15th-century fortress and museum showcasing local artifacts and offering panoramic views of the city.',
+    image: 'https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg',
+    tags: ['Museum', 'Historical', 'Architecture'],
+    rating: 4.6,
+    reviews: 340
+  },
+  {
+    id: 'p3',
+    name: 'Ras el-Maa Waterfall',
+    description: 'A peaceful waterfall at the edge of the medina where locals gather to socialize and do laundry.',
+    image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg',
+    tags: ['Nature', 'Local Life', 'Scenic'],
+    rating: 4.4,
+    reviews: 280
+  }
+];
+
+const hotelCards = [
+  {
+    id: 'h1',
+    name: 'Riad Cherifa',
+    description: 'Luxurious riad with traditional Moroccan decor, rooftop terrace, and mountain views.',
+    image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg',
+    tags: ['Luxury', 'Traditional', 'Views'],
+    price: '€150/night',
+    rating: 4.9,
+    reviews: 230
+  },
+  {
+    id: 'h2',
+    name: 'Casa Hassan',
+    description: 'Charming hotel in the heart of the medina with authentic architecture and home-cooked meals.',
+    image: 'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg',
+    tags: ['Mid-range', 'Central', 'Restaurant'],
+    price: '€80/night',
+    rating: 4.7,
+    reviews: 450
+  },
+  {
+    id: 'h3',
+    name: 'Dar Echchaouen',
+    description: 'Beautiful guesthouse with garden, pool, and panoramic terrace overlooking the Rif Mountains.',
+    image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg',
+    tags: ['Boutique', 'Pool', 'Garden'],
+    price: '€120/night',
+    rating: 4.8,
+    reviews: 320
+  }
+];
+
+const productCards = [
+  {
+    id: 'pr1',
+    name: 'Handwoven Carpet',
+    description: 'Traditional Moroccan carpet handwoven by local artisans using natural wool and dyes.',
+    image: 'https://images.pexels.com/photos/6192336/pexels-photo-6192336.jpeg',
+    tags: ['Handicraft', 'Home Decor', 'Traditional'],
+    price: '€200',
+    artisan: 'Medina Artisan Collective'
+  },
+  {
+    id: 'pr2',
+    name: 'Leather Pouf',
+    description: 'Handcrafted leather ottoman made using traditional Moroccan techniques.',
+    image: 'https://images.pexels.com/photos/6186524/pexels-photo-6186524.jpeg',
+    tags: ['Leather', 'Furniture', 'Handmade'],
+    price: '€80',
+    artisan: 'Hassan Leather Works'
+  },
+  {
+    id: 'pr3',
+    name: 'Blue Pottery Set',
+    description: 'Hand-painted ceramic tea set in Chefchaouen\'s signature blue.',
+    image: 'https://images.pexels.com/photos/6186654/pexels-photo-6186654.jpeg',
+    tags: ['Ceramics', 'Kitchenware', 'Artisanal'],
+    price: '€45',
+    artisan: 'Blue City Ceramics'
+  }
+];
+
+const restaurantCards = [
+  {
+    id: 'r1',
+    name: 'Restaurant Beldi Bab Ssour',
+    description: 'Traditional Moroccan cuisine with rooftop dining and mountain views.',
+    image: 'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg',
+    tags: ['Moroccan', 'Rooftop', 'Views'],
+    priceRange: '€€',
+    rating: 4.7,
+    reviews: 380
+  },
+  {
+    id: 'r2',
+    name: 'Casa Aladdin',
+    description: 'Popular restaurant serving local specialties and Mediterranean dishes.',
+    image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg',
+    tags: ['Local', 'Mediterranean', 'Casual'],
+    priceRange: '€',
+    rating: 4.5,
+    reviews: 420
+  },
+  {
+    id: 'r3',
+    name: 'Café Clock',
+    description: 'Modern café offering fusion cuisine and cultural events.',
+    image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
+    tags: ['Café', 'Fusion', 'Events'],
+    priceRange: '€€',
+    rating: 4.6,
+    reviews: 290
+  }
+];
+
+const transportCards = [
+  {
+    id: 't1',
+    name: 'Chefchaouen - Tangier Transfer',
+    description: 'Private transfer service between Chefchaouen and Tangier.',
+    image: 'https://images.pexels.com/photos/385998/pexels-photo-385998.jpeg',
+    tags: ['Private', 'Comfortable', 'Direct'],
+    price: '€60/person',
+    duration: '2 hours'
+  },
+  {
+    id: 't2',
+    name: 'Local Taxi Service',
+    description: 'Reliable taxi service for getting around Chefchaouen.',
+    image: 'https://images.pexels.com/photos/2873486/pexels-photo-2873486.jpeg',
+    tags: ['Local', 'Flexible', 'Affordable'],
+    price: 'From €5',
+    duration: 'On demand'
+  },
+  {
+    id: 't3',
+    name: 'Mountain Tour Transport',
+    description: '4x4 vehicle tours to explore the Rif Mountains.',
+    image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg',
+    tags: ['Adventure', '4x4', 'Tours'],
+    price: '€80/person',
+    duration: '6-8 hours'
+  }
+];
+
 const ChefchaouenPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedContent, setSelectedContent] = useState<ContentType>('slideshow');
@@ -288,20 +444,78 @@ const ChefchaouenPage: React.FC = () => {
       );
     }
 
+    let cards;
+    switch (selectedContent) {
+      case 'places':
+        cards = placeCards;
+        break;
+      case 'hotels':
+        cards = hotelCards;
+        break;
+      case 'products':
+        cards = productCards;
+        break;
+      case 'restaurants':
+        cards = restaurantCards;
+        break;
+      case 'transport':
+        cards = transportCards;
+        break;
+      default:
+        cards = [];
+    }
+
     return (
       <div className="p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
-              <div className="h-48 bg-slate-100" />
+          {cards.map((card) => (
+            <div key={card.id} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+              <div className="relative h-48">
+                <img
+                  src={card.image}
+                  alt={card.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <h3 className="text-white font-semibold text-lg">{card.name}</h3>
+                  {'rating' in card && (
+                    <div className="flex items-center text-white/90">
+                      <Star size={16} className="fill-current text-yellow-400" />
+                      <span className="ml-1">{card.rating}</span>
+                      <span className="mx-1">·</span>
+                      <span>{card.reviews} reviews</span>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="p-4">
-                <h3 className="font-medium text-lg mb-2">
-                  {selectedContent.charAt(0).toUpperCase() + selectedContent.slice(1)} Item {index + 1}
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <p className="text-slate-600 text-sm mb-3">
+                  {card.description}
                 </p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {card.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-800"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  {'price' in card && (
+                    <span className="text-slate-700 font-medium">{card.price}</span>
+                  )}
+                  {'priceRange' in card && (
+                    <span className="text-slate-700 font-medium">{card.priceRange}</span>
+                  )}
+                  {'duration' in card && (
+                    <span className="text-slate-600">{card.duration}</span>
+                  )}
+                  {'artisan' in card && (
+                    <span className="text-slate-600 text-xs">{card.artisan}</span>
+                  )}
+                </div>
               </div>
             </div>
           ))}
@@ -410,3 +624,5 @@ const ChefchaouenPage: React.FC = () => {
 };
 
 export default ChefchaouenPage;
+
+export default ChefchaouenPage
