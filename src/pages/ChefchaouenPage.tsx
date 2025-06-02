@@ -3,13 +3,167 @@ import { MapPin, Utensils, Building2, Car, ShoppingBag, Hotel, Calendar, Chevron
 import { samplePlaces, sampleActivities, sampleEvents } from '../data/samples';
 
 const images = [
-  'https://bluedoorcuisine.com/wp-content/uploads/2023/03/milad-alizadeh-JibMa0FbyHw-unsplash-scaled.jpg',
-  'https://www.hachettebookgroup.com/wp-content/uploads/2019/01/Morocco_ChefchouenAerial_Zzvet-iStock-473937070.jpg',
-  'https://traveladdicts.net/wp-content/uploads/2018/05/Chefchaouen-Morocco-shops-rugs.jpg.webp',
-  'https://media.cntraveler.com/photos/55d63075c47ae13868aeb74f/master/pass/Chefchaouen-Lucy-Laucht-tout.jpg'
+  'https://images.mnstatic.com/d2/96/d2967567f7aa784a006de6ae3879bdb9.jpg',
+  'https://thumbs.dreamstime.com/b/le-kasbah-historique-de-chefchaouen-est-une-forteresse-mur%C3%A9e-avec-un-petit-jardin-mus%C3%A9e-ethnographique-et-petite-galerie-d-art-141902467.jpg',
+  'https://media.safarway.com/content/1e9916eb-887f-478f-8dbe-451ae66b5879_sm.jpg',
+  'https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg'
 ];
 
-type ContentType = 'slideshow' | 'places' | 'activities' | 'events' | 'hotels' | 'products' | 'restaurants' | 'transport';
+const placeCards = [
+  {
+    id: 'p1',
+    name: 'Plaza Uta el-Hammam',
+    description: 'The main square of Chefchaouen, surrounded by cafes and restaurants, featuring the Grand Mosque and kasbah.',
+    image: 'https://images.mnstatic.com/d2/96/d2967567f7aa784a006de6ae3879bdb9.jpg',
+    tags: ['Historical', 'Cultural', 'Central'],
+    rating: 4.8,
+    reviews: 520
+  },
+  {
+    id: 'p2',
+    name: 'Kasbah Museum',
+    description: 'A 15th-century fortress and museum showcasing local artifacts and offering panoramic views of the city.',
+    image: 'https://thumbs.dreamstime.com/b/le-kasbah-historique-de-chefchaouen-est-une-forteresse-mur%C3%A9e-avec-un-petit-jardin-mus%C3%A9e-ethnographique-et-petite-galerie-d-art-141902467.jpg',
+    tags: ['Museum', 'Historical', 'Architecture'],
+    rating: 4.6,
+    reviews: 340
+  },
+  {
+    id: 'p3',
+    name: 'Ras el-Maa Waterfall',
+    description: 'A peaceful waterfall at the edge of the medina where locals gather to socialize and do laundry.',
+    image: 'https://media.safarway.com/content/1e9916eb-887f-478f-8dbe-451ae66b5879_sm.jpg',
+    tags: ['Nature', 'Local Life', 'Scenic'],
+    rating: 4.4,
+    reviews: 280
+  }
+];
+
+const hotelCards = [
+  {
+    id: 'h1',
+    name: 'Riad Cherifa',
+    description: 'Luxurious riad with traditional Moroccan decor, rooftop terrace, and mountain views.',
+    image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg',
+    tags: ['Luxury', 'Traditional', 'Views'],
+    price: '€150/night',
+    rating: 4.9,
+    reviews: 230
+  },
+  {
+    id: 'h2',
+    name: 'Casa Hassan',
+    description: 'Charming hotel in the heart of the medina with authentic architecture and home-cooked meals.',
+    image: 'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg',
+    tags: ['Mid-range', 'Central', 'Restaurant'],
+    price: '€80/night',
+    rating: 4.7,
+    reviews: 450
+  },
+  {
+    id: 'h3',
+    name: 'Dar Echchaouen',
+    description: 'Beautiful guesthouse with garden, pool, and panoramic terrace overlooking the Rif Mountains.',
+    image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg',
+    tags: ['Boutique', 'Pool', 'Garden'],
+    price: '€120/night',
+    rating: 4.8,
+    reviews: 320
+  }
+];
+
+const productCards = [
+  {
+    id: 'pr1',
+    name: 'Handwoven Carpet',
+    description: 'Traditional Moroccan carpet handwoven by local artisans using natural wool and dyes.',
+    image: 'https://images.pexels.com/photos/6192336/pexels-photo-6192336.jpeg',
+    tags: ['Handicraft', 'Home Decor', 'Traditional'],
+    price: '€200',
+    artisan: 'Medina Artisan Collective'
+  },
+  {
+    id: 'pr2',
+    name: 'Leather Pouf',
+    description: 'Handcrafted leather ottoman made using traditional Moroccan techniques.',
+    image: 'https://images.pexels.com/photos/6186524/pexels-photo-6186524.jpeg',
+    tags: ['Leather', 'Furniture', 'Handmade'],
+    price: '€80',
+    artisan: 'Hassan Leather Works'
+  },
+  {
+    id: 'pr3',
+    name: 'Blue Pottery Set',
+    description: 'Hand-painted ceramic tea set in Chefchaouen\'s signature blue.',
+    image: 'https://images.pexels.com/photos/6186654/pexels-photo-6186654.jpeg',
+    tags: ['Ceramics', 'Kitchenware', 'Artisanal'],
+    price: '€45',
+    artisan: 'Blue City Ceramics'
+  }
+];
+
+const restaurantCards = [
+  {
+    id: 'r1',
+    name: 'Restaurant Beldi Bab Ssour',
+    description: 'Traditional Moroccan cuisine with rooftop dining and mountain views.',
+    image: 'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg',
+    tags: ['Moroccan', 'Rooftop', 'Views'],
+    priceRange: '€€',
+    rating: 4.7,
+    reviews: 380
+  },
+  {
+    id: 'r2',
+    name: 'Casa Aladdin',
+    description: 'Popular restaurant serving local specialties and Mediterranean dishes.',
+    image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg',
+    tags: ['Local', 'Mediterranean', 'Casual'],
+    priceRange: '€',
+    rating: 4.5,
+    reviews: 420
+  },
+  {
+    id: 'r3',
+    name: 'Café Clock',
+    description: 'Modern café offering fusion cuisine and cultural events.',
+    image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
+    tags: ['Café', 'Fusion', 'Events'],
+    priceRange: '€€',
+    rating: 4.6,
+    reviews: 290
+  }
+];
+
+const transportCards = [
+  {
+    id: 't1',
+    name: 'Chefchaouen - Tangier Transfer',
+    description: 'Private transfer service between Chefchaouen and Tangier.',
+    image: 'https://images.pexels.com/photos/385998/pexels-photo-385998.jpeg',
+    tags: ['Private', 'Comfortable', 'Direct'],
+    price: '€60/person',
+    duration: '2 hours'
+  },
+  {
+    id: 't2',
+    name: 'Local Taxi Service',
+    description: 'Reliable taxi service for getting around Chefchaouen.',
+    image: 'https://images.pexels.com/photos/2873486/pexels-photo-2873486.jpeg',
+    tags: ['Local', 'Flexible', 'Affordable'],
+    price: 'From €5',
+    duration: 'On demand'
+  },
+  {
+    id: 't3',
+    name: 'Mountain Tour Transport',
+    description: '4x4 vehicle tours to explore the Rif Mountains.',
+    image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg',
+    tags: ['Adventure', '4x4', 'Tours'],
+    price: '€80/person',
+    duration: '6-8 hours'
+  }
+];
 
 const guideCategories = [
   {
@@ -152,165 +306,9 @@ const navigationItems = [
   { type: 'transport', icon: <Car size={20} />, label: 'Transport' }
 ];
 
-const placeCards = [
-  {
-    id: 'p1',
-    name: 'Plaza Uta el-Hammam',
-    description: 'The main square of Chefchaouen, surrounded by cafes and restaurants, featuring the Grand Mosque and kasbah.',
-    image: 'https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg',
-    tags: ['Historical', 'Cultural', 'Central'],
-    rating: 4.8,
-    reviews: 520
-  },
-  {
-    id: 'p2',
-    name: 'Kasbah Museum',
-    description: 'A 15th-century fortress and museum showcasing local artifacts and offering panoramic views of the city.',
-    image: 'https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg',
-    tags: ['Museum', 'Historical', 'Architecture'],
-    rating: 4.6,
-    reviews: 340
-  },
-  {
-    id: 'p3',
-    name: 'Ras el-Maa Waterfall',
-    description: 'A peaceful waterfall at the edge of the medina where locals gather to socialize and do laundry.',
-    image: 'https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg',
-    tags: ['Nature', 'Local Life', 'Scenic'],
-    rating: 4.4,
-    reviews: 280
-  }
-];
-
-const hotelCards = [
-  {
-    id: 'h1',
-    name: 'Riad Cherifa',
-    description: 'Luxurious riad with traditional Moroccan decor, rooftop terrace, and mountain views.',
-    image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg',
-    tags: ['Luxury', 'Traditional', 'Views'],
-    price: '€150/night',
-    rating: 4.9,
-    reviews: 230
-  },
-  {
-    id: 'h2',
-    name: 'Casa Hassan',
-    description: 'Charming hotel in the heart of the medina with authentic architecture and home-cooked meals.',
-    image: 'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg',
-    tags: ['Mid-range', 'Central', 'Restaurant'],
-    price: '€80/night',
-    rating: 4.7,
-    reviews: 450
-  },
-  {
-    id: 'h3',
-    name: 'Dar Echchaouen',
-    description: 'Beautiful guesthouse with garden, pool, and panoramic terrace overlooking the Rif Mountains.',
-    image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg',
-    tags: ['Boutique', 'Pool', 'Garden'],
-    price: '€120/night',
-    rating: 4.8,
-    reviews: 320
-  }
-];
-
-const productCards = [
-  {
-    id: 'pr1',
-    name: 'Handwoven Carpet',
-    description: 'Traditional Moroccan carpet handwoven by local artisans using natural wool and dyes.',
-    image: 'https://images.pexels.com/photos/6192336/pexels-photo-6192336.jpeg',
-    tags: ['Handicraft', 'Home Decor', 'Traditional'],
-    price: '€200',
-    artisan: 'Medina Artisan Collective'
-  },
-  {
-    id: 'pr2',
-    name: 'Leather Pouf',
-    description: 'Handcrafted leather ottoman made using traditional Moroccan techniques.',
-    image: 'https://images.pexels.com/photos/6186524/pexels-photo-6186524.jpeg',
-    tags: ['Leather', 'Furniture', 'Handmade'],
-    price: '€80',
-    artisan: 'Hassan Leather Works'
-  },
-  {
-    id: 'pr3',
-    name: 'Blue Pottery Set',
-    description: 'Hand-painted ceramic tea set in Chefchaouen\'s signature blue.',
-    image: 'https://images.pexels.com/photos/6186654/pexels-photo-6186654.jpeg',
-    tags: ['Ceramics', 'Kitchenware', 'Artisanal'],
-    price: '€45',
-    artisan: 'Blue City Ceramics'
-  }
-];
-
-const restaurantCards = [
-  {
-    id: 'r1',
-    name: 'Restaurant Beldi Bab Ssour',
-    description: 'Traditional Moroccan cuisine with rooftop dining and mountain views.',
-    image: 'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg',
-    tags: ['Moroccan', 'Rooftop', 'Views'],
-    priceRange: '€€',
-    rating: 4.7,
-    reviews: 380
-  },
-  {
-    id: 'r2',
-    name: 'Casa Aladdin',
-    description: 'Popular restaurant serving local specialties and Mediterranean dishes.',
-    image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg',
-    tags: ['Local', 'Mediterranean', 'Casual'],
-    priceRange: '€',
-    rating: 4.5,
-    reviews: 420
-  },
-  {
-    id: 'r3',
-    name: 'Café Clock',
-    description: 'Modern café offering fusion cuisine and cultural events.',
-    image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
-    tags: ['Café', 'Fusion', 'Events'],
-    priceRange: '€€',
-    rating: 4.6,
-    reviews: 290
-  }
-];
-
-const transportCards = [
-  {
-    id: 't1',
-    name: 'Chefchaouen - Tangier Transfer',
-    description: 'Private transfer service between Chefchaouen and Tangier.',
-    image: 'https://images.pexels.com/photos/385998/pexels-photo-385998.jpeg',
-    tags: ['Private', 'Comfortable', 'Direct'],
-    price: '€60/person',
-    duration: '2 hours'
-  },
-  {
-    id: 't2',
-    name: 'Local Taxi Service',
-    description: 'Reliable taxi service for getting around Chefchaouen.',
-    image: 'https://images.pexels.com/photos/2873486/pexels-photo-2873486.jpeg',
-    tags: ['Local', 'Flexible', 'Affordable'],
-    price: 'From €5',
-    duration: 'On demand'
-  },
-  {
-    id: 't3',
-    name: 'Mountain Tour Transport',
-    description: '4x4 vehicle tours to explore the Rif Mountains.',
-    image: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg',
-    tags: ['Adventure', '4x4', 'Tours'],
-    price: '€80/person',
-    duration: '6-8 hours'
-  }
-];
-
 const ChefchaouenPage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [selectedContent, setSelectedContent] = useState<ContentType>('slideshow');
+  const [selectedContent, setSelectedContent] = useState<'slideshow' | 'places' | 'activities' | 'events' | 'hotels' | 'products' | 'restaurants' | 'transport'>('slideshow');
   const [selectedGuideCategory, setSelectedGuideCategory] = useState('overview');
 
   useEffect(() => {
@@ -565,7 +563,7 @@ const ChefchaouenPage: React.FC = () => {
               {navigationItems.map(({ type, icon, label }) => (
                 <button
                   key={type}
-                  onClick={() => setSelectedContent(type as ContentType)}
+                  onClick={() => setSelectedContent(type as typeof selectedContent)}
                   className={`px-6 py-4 flex items-center gap-2 transition-colors ${
                     selectedContent === type
                       ? 'text-blue-600 border-b-2 border-blue-600'
@@ -624,5 +622,3 @@ const ChefchaouenPage: React.FC = () => {
 };
 
 export default ChefchaouenPage;
-
-export default ChefchaouenPage
